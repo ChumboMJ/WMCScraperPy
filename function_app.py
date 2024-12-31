@@ -17,12 +17,12 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
             status_code=400
         )
     else:
-        name = req_body.get('page_link')
+        target_link = req_body.get('target_link')
 
-    if name:
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+    if target_link:
+        return func.HttpResponse(f"Here is the target_link value: {target_link}. This HTTP triggered function executed successfully.")
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             "This HTTP triggered function executed successfully. Be sure to pass a target link for a customized response",
              status_code=200
         )
