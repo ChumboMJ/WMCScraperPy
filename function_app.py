@@ -17,7 +17,7 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
             status_code=400
         )
     else:
-        name = req_body.get('name')
+        name = req_body.get('page_link')
 
     if name:
         return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
