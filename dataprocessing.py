@@ -1,10 +1,7 @@
 import requests
+from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError
 from .constants import RESULTS_TYPE, RECORD_ATTRIBUTES, BROWSER_REQ_HEADER
-
-
-def process_wmc_url(result_type, attribute_names):
-    return "Hello World"
 
 def open_url(url):
     try:
@@ -18,3 +15,11 @@ def open_url(url):
         raise Exception(f"Other error occurred: {err}")
     
     return response
+
+def process_wmc_url(result_type, url):
+    response = open_url(url)
+    
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+    return "Hello World"
