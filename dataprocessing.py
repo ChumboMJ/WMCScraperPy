@@ -16,8 +16,20 @@ def open_url(url):
     
     return response
 
-def map_data_rows():
-    return "Hello World 2"
+def map_data_rows(table, result_type):
+    # Extract the table rows
+    rows = table.find_all('tr')
+
+    attribute_names = RECORD_ATTRIBUTES[result_type]
+
+    table_data = []
+    for row in rows:
+        cells = row.find_all('td')
+        if len(cells) == len(attribute_names):
+            row_data = {attribute_names[i]: cells[i].text.strip() for i in range(len(attribute_names))}
+            table_data.append(row_data)
+
+    return table_data
 
 def process_wmc_url(result_type, url):
     response = open_url(url)
@@ -33,7 +45,7 @@ def process_wmc_url(result_type, url):
         print('number of tables found: ' + str(len(tables)))
 
         lastTable = len(tables) - 1
-        resultTable = tables[lastTable]
+        result_table = tables[lastTable]
 
         attribute_names = RECORD_ATTRIBUTES[result_type]
 
