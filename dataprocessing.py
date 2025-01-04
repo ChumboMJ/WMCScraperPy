@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError
 from .constants import RESULTS_TYPE, RECORD_ATTRIBUTES, BROWSER_REQ_HEADER
 
+def is_valid_result_type(value):
+    return value in RESULTS_TYPE.values()
+
 def open_url(url):
     try:
         #Send a GET request to the given url
