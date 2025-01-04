@@ -29,5 +29,7 @@ def process_wmc_url(result_type, url):
         # Print the number of tables on the page
         print('number of tables found: ' + str(len(tables)))
 
+        lastTable = len(tables) - 1
+        resultTable = tables[lastTable]
 
     return "Hello World"
