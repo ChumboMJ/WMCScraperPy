@@ -44,10 +44,10 @@ def process_wmc_url(result_type, url):
         # Print the number of tables on the page
         print('number of tables found: ' + str(len(tables)))
 
-        lastTable = len(tables) - 1
-        result_table = tables[lastTable]
+        last_table_idx = len(tables) - 1
+        result_table = tables[last_table_idx]
 
-        attribute_names = RECORD_ATTRIBUTES[result_type]
+        map_data_rows(result_table, result_type)
 
     else:
         raise Exception("The response code was not 200")
