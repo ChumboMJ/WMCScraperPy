@@ -1,4 +1,5 @@
 import requests
+import json
 from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError
 from .constants import RESULTS_TYPE, RECORD_ATTRIBUTES, BROWSER_REQ_HEADER
@@ -47,9 +48,12 @@ def process_wmc_url(result_type, url):
         last_table_idx = len(tables) - 1
         result_table = tables[last_table_idx]
 
-        map_data_rows(result_table, result_type)
+        table_data = map_data_rows(result_table, result_type)
 
+        table_json = json.dumps(table_data, indent=4)
+
+        print(table_json)
     else:
         raise Exception("The response code was not 200")
 
-    return "Hello World"
+    return table_json
