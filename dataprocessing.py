@@ -16,6 +16,9 @@ def open_url(url):
     
     return response
 
+def map_data_rows():
+    return "Hello World 2"
+
 def process_wmc_url(result_type, url):
     response = open_url(url)
     
@@ -31,5 +34,10 @@ def process_wmc_url(result_type, url):
 
         lastTable = len(tables) - 1
         resultTable = tables[lastTable]
+
+        attribute_names = RECORD_ATTRIBUTES[result_type]
+
+    else:
+        raise Exception("The response code was not 200")
 
     return "Hello World"
