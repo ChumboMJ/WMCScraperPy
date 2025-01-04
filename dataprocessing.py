@@ -20,6 +20,14 @@ def process_wmc_url(result_type, url):
     response = open_url(url)
     
     if response.status_code == 200:
+        # Parse the html request
         soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Get each table on the page
+        tables = soup.find_all('table')
+
+        # Print the number of tables on the page
+        print('number of tables found: ' + str(len(tables)))
+
 
     return "Hello World"
