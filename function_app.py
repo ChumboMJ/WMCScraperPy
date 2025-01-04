@@ -2,7 +2,7 @@ import azure.functions as func
 import datetime
 import json
 import logging
-from .dataprocessing import *
+from dataprocessing import is_valid_result_type
 
 app = func.FunctionApp()
 
