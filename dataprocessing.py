@@ -45,11 +45,14 @@ def process_wmc_url(result_type, url):
         # Print the number of tables on the page
         print('number of tables found: ' + str(len(tables)))
 
+        # Calculate the index of the last table
         last_table_idx = len(tables) - 1
         result_table = tables[last_table_idx]
 
+        # Map the data found in the last table on the page
         table_data = map_data_rows(result_table, result_type)
 
+        # Convert the results to JSON
         table_json = json.dumps(table_data, indent=4)
 
         print(table_json)
