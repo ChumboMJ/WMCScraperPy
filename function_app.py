@@ -2,6 +2,7 @@ import azure.functions as func
 import datetime
 import json
 import logging
+from .dataprocessing import *
 
 app = func.FunctionApp()
 
@@ -10,7 +11,13 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     # Retrieve the 'results_type' query parameter from the request URL
-    name = req.params.get('results_type')
+    results_type = req.params.get('results_type')
+
+    if not is_valid_result_type(results_type):
+        return func.HttpResponse(
+            'results_type invalid. Must be 1 (PAX), 2 (RAW), or 3 (LAP)',
+            status_code=400
+        )
 
     # TODO: Validate that the results_type is in the RESULTS_TYPE constant
 
