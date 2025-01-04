@@ -9,6 +9,9 @@ app = func.FunctionApp()
 def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
+    # Retrieve the 'results_type' query parameter from the request URL
+    name = req.params.get('results_type')
+
     try:
         req_body = req.get_json()
     except ValueError:
