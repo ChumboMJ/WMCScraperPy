@@ -4,9 +4,22 @@ from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError
 from constants import RESULTS_TYPE, RECORD_ATTRIBUTES, BROWSER_REQ_HEADER
 
-# Currently checks if the result type is in the constant integers in the RESULTS_TYPE Dictionary
+# Check if the upper case value is in the RESULTS_TYPE values
+# if it is not, try to convert the value to an integer and check if
+# the integer is in the RESULTS_TYPE keys
 def is_valid_result_type(value):
-    return value in RESULTS_TYPE.values() or int(value) in RESULTS_TYPE.keys()
+    if value.upper() in RESULTS_TYPE.values():
+        return True
+    
+    #Try converting the value to an integer
+    try:
+        int_value = int(value)
+    except ValueError:
+        int_value = None
+
+    if int_value is not None:
+        return int_value in RESULTS_TYPE.keys()
+    return False
 
 def open_url(url):
     try:
