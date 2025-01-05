@@ -23,8 +23,6 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
             'results_type invalid. Must be 1 (PAX), 2 (RAW), or 3 (LAP)',
             status_code=400)
 
-    # TODO: Validate that the results_type is in the RESULTS_TYPE constant
-
     try:
         req_body = req.get_json()
     except ValueError:
