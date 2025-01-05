@@ -13,11 +13,15 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
     # Retrieve the 'results_type' query parameter from the request URL
     results_type = req.params.get('results_type')
 
+    if results_type is None:
+        return func.HttpResponse(
+            'results_type must have a value',
+            status_code=400)
+
     if not is_valid_result_type(results_type):
         return func.HttpResponse(
             'results_type invalid. Must be 1 (PAX), 2 (RAW), or 3 (LAP)',
-            status_code=400
-        )
+            status_code=400)
 
     # TODO: Validate that the results_type is in the RESULTS_TYPE constant
 
