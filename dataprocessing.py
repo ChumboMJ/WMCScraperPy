@@ -5,9 +5,8 @@ from requests.exceptions import HTTPError
 from constants import RESULTS_TYPE, RECORD_ATTRIBUTES, BROWSER_REQ_HEADER
 
 # Currently checks if the result type is in the constant integers in the RESULTS_TYPE Dictionary
-# TODO: Consider allowing valid Strings or Ints...eg PAX or 1 are both valid.
 def is_valid_result_type(value):
-    return int(value) in RESULTS_TYPE.values()
+    return value in RESULTS_TYPE.values() or int(value) in RESULTS_TYPE.keys()
 
 def open_url(url):
     try:
