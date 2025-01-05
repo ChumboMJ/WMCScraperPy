@@ -1,8 +1,8 @@
 # A Dictionary representing the three types of results
 RESULTS_TYPE = {
-    "PAX" : 1,
-    "RAW" : 2,
-    "LAP" : 3
+    1 : "PAX",
+    2 : "RAW",
+    3 : "LAP"
 }
 
 # A Dictionary representing the possible attributes from the data tables.
