@@ -34,7 +34,9 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
         target_link = req_body.get('target_link')
 
     if target_link:
-        # TODO: Process the link to get the Tsble JSON
+        # TODO: Process the link to get the Table JSON
+
+        
         # TODO: Write the JSON data out to CosmosDB
 
         return func.HttpResponse(f"Here is the target_link value: {target_link}. This HTTP triggered function executed successfully.")
