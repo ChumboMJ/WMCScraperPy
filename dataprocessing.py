@@ -38,6 +38,8 @@ def map_data_rows(table, result_type):
     # Extract the table rows
     rows = table.find_all('tr')
 
+    #TODO: Set this up to allow for the KEY or VALUE to be used in result_type
+
     attribute_names = RECORD_ATTRIBUTES[result_type]
 
     table_data = []
