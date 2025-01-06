@@ -34,7 +34,6 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
         target_link = req_body.get('target_link')
 
     if target_link:
-        # TODO: Process the link to get the Table JSON
         results_json = process_wmc_url(results_type, target_link)
         print(results_json)
 
