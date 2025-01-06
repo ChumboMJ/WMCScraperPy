@@ -7,9 +7,9 @@ RESULTS_TYPE = {
 
 # A Dictionary representing the possible attributes from the data tables.
 RECORD_ATTRIBUTES = {
-    ('paxPosition', 'classPosition', 'class', 'number', 'driver', 'car', 'total', 'factor', 'paxTime', 'diff', 'fromFirst') : 1,
-    ('rawPosition', 'classPosition', 'class', 'number', 'driver', 'car', 'rawTime', 'diff', 'fromFirst') : 2,
-    ('position', 'class', 'number', 'driver', 'car', 'color', 'run1', 'run2', 'run3', 'run4', 'run5', 'run6', 'total', 'diff') : 3
+    1 : ('paxPosition', 'classPosition', 'class', 'number', 'driver', 'car', 'total', 'factor', 'paxTime', 'diff', 'fromFirst'),
+    2 : ('rawPosition', 'classPosition', 'class', 'number', 'driver', 'car', 'rawTime', 'diff', 'fromFirst'),
+    3 : ('position', 'class', 'number', 'driver', 'car', 'color', 'run1', 'run2', 'run3', 'run4', 'run5', 'run6', 'total', 'diff')
 }
 
 # Represents the header that would be sent if the request was from a browser
