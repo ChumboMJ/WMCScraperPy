@@ -2,7 +2,7 @@ import azure.functions as func
 import datetime
 import json
 import logging
-from dataprocessing import is_valid_result_type
+from dataprocessing import is_valid_result_type, open_url
 
 app = func.FunctionApp()
 
@@ -35,8 +35,9 @@ def ScrapeWmcData(req: func.HttpRequest) -> func.HttpResponse:
 
     if target_link:
         # TODO: Process the link to get the Table JSON
+        http_response = open_url(target_link)
+        print(http_response)
 
-        
         # TODO: Write the JSON data out to CosmosDB
 
         return func.HttpResponse(f"Here is the target_link value: {target_link}. This HTTP triggered function executed successfully.")
